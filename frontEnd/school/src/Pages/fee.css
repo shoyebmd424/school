@@ -1,0 +1,24 @@
+.tabsfees {
+    background-color: #e0f7ff;
+    padding: 40px;
+    font-weight: 600;
+    font-size: larger;
+}
+
+.feethead {
+    background: #106bab;
+}
+.table-formatfee{
+     width: 100%;
+}
+@media (max-width: 561px){
+.table-formatfee{
+    width: 556px;
+    overflow-x: scroll;
+   
+}
+.information-table{
+    overflow-x: scroll;
+    /* width: 400px; */
+}
+}

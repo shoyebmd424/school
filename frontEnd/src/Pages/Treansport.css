@@ -1,0 +1,56 @@
+
+ /* Treansport.css */
+
+
+ .bus-image {
+  width: 100px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.text{
+  margin-left: 10%;
+  width: 80%;
+ text-align: justify;
+ 
+}
+
+
+.page{
+  /* background-color: rgb(175, 234, 253); */
+ /* background-color: burlywood; */
+ 
+
+} 
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .bus-image {
+    /* Adjust styles for smaller screens */
+    height: 100px;
+  }
+
+  .text {
+    /* Adjust styles for smaller screens */
+    margin-left: 5%;
+    width: 90%;
+  }
+}
+
+/* For screens larger than 768px */
+@media (min-width: 769px) {
+  .bus-image {
+    /* Adjust styles for larger screens */
+    width: 700px;
+    height: 400px;
+  }
+
+  .text {
+    /* Adjust styles for larger screens */
+    margin-left: 10%;
+    width: 80%;
+  }
+  .treansport-container{
+    width: 100%;
+
+  }
+}

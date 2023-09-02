@@ -1,0 +1,224 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+.App {
+  overflow-x: auto;
+  background: linear-gradient(0deg, rgb(226 223 0 / 18%) 12%, rgb(109 192 205 / 32%) 38%, rgba(206,223,26,0.3867997198879552) 65%);
+}
+/* <------------------Header ------------------------------->*/
+#header{
+  background-color: rgb(33, 33, 67);
+  font-weight: bold;
+  border-bottom: 3px solid rgb(42,199,197);;
+}
+#header ul li{
+  list-style: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 16px;
+}
+
+@media (min-width:1164px) {
+
+.header-responsive ul{
+  display: flex;
+}
+.header-icons{
+  display: none;
+}
+}
+
+@media (max-width:1164px) {
+
+.header-responsive{
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 20rem;
+  background-color: rgb(33, 33, 67);
+display: none;
+padding: 1rem 0;
+z-index: 5;
+transition: all 2s;
+}
+
+.header-responsive ul li{
+  margin: 1rem 0;
+}
+}
+/* ----------------------------SubHeader----------------- */
+@media (min-width:768px) {
+  /* .subheader-responsive{
+    display: none;
+  } */
+  .subHeader-icons{
+    display: none !important;
+  }
+}
+@media (max-width:768px) {
+  .subheader-responsive{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 7rem;
+    background: white;
+    padding: 1rem;
+    z-index: 4;
+    height: 100vh;
+  }
+  .subheader-responsive li{
+margin: 2rem 0 !important;
+  }
+  .subHeader-icons{
+    display: flex !important;
+  }
+}
+
+
+
+
+/* <--------------------------Navbar-----------------------------> */
+.cNavbar ul li{
+list-style: none;
+}
+.cNavbar ul{
+  gap: 2rem;
+}
+.cNavbar ul ul li{
+  font-size: 17px;
+  font-weight: bold;
+  white-space: nowrap;
+  position: relative;
+}
+.cNavbar ul ul li a{
+  text-decoration: none;
+}
+.cNavbar ul ul li ul{
+  display: none;
+  position: absolute;
+  z-index: 2;
+  background-color: green;
+  width: 15rem;
+}
+.cNavbar ul ul li ul::before{
+  z-index: -1;
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  /* background-color: green; */
+  margin-top: -10px;
+  margin-left: 25px;
+  right: 8rem;
+ border-left: 10px solid transparent;
+ border-right: 10px solid transparent;
+ border-bottom: 20px solid green;
+}
+.cNavbar ul ul li:hover ul{
+  display: block;
+}
+.cNavbar ul ul li:hover svg{
+  transform: rotate(180deg);
+  transition: all 200ms;
+}
+.cNavbar ul ul li svg{
+  transform: rotate(0deg);
+  transition: all 200ms;
+}
+.cNavbar ul ul li:hover ul li{
+  padding: 0.4rem 1rem;
+}
+.cNavbar ul ul li:hover ul li:hover{
+  background-color: rgb(32, 96, 32);
+}
+.cNavbar .subnav ul{
+  visibility: hidden;
+  position: absolute;
+  right: 102%;
+  border-radius: 0.5rem;
+  margin-top: -1.5rem;
+}
+.cNavbar .subnav ul::before{
+  z-index: -1;
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  margin-top: -25px;
+  margin-left: 25px;
+  top: 2rem;
+  right: -4px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+.cNavbar .subnav:hover ul{
+  visibility: visible;
+}
+@media  (max-width: 1000px) {
+ .nav-list{
+  position: absolute;
+  height: 100vh;
+  background-color: black;
+  padding: 1rem 2rem;
+  padding-top: 0;
+  display: none;
+  z-index: 5;
+ }
+ .nav-list li{
+  margin: 1.5rem 0 !important;
+ }
+.open-icons{
+  display: block;
+}
+}
+@media  (min-width: 1000px) {
+  .nav-list{
+    display: flex;
+  }
+.open-icons{
+  display: none;
+}
+.close-icons{
+  display: none;
+}
+}
+
+
+/* -------------------------check-box--------------------- */
+.register input.check,.ninth-class input.check{
+  width: 1rem;
+  aspect-ratio: 1;
+  margin: 0.5rem;
+}
+
+/* -----------------------------homecard-------------------- */
+@media (max-width:586) {
+  .all-home-card{
+    clip-path: none !important;
+  }
+}
+
+
+/* ------------------------cratiria ------------------------*/
+@media (max-width:500px) {
+  .criteria .table{
+    overflow: scroll !important;
+    width: 500px;
+  }
+  
+}
+
+.login .form-control:focus,.enquery .form-control:focus,.register .form-control:focus{
+  outline: none;
+  box-shadow: none;
+}
+/*------------------------------ add student----------------- */
+@media (min-width:700px){
+.addstudent{
+  left: 18%;
+  top: 13rem;
+  right: 17%;
+}
+}
