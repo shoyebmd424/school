@@ -6,6 +6,7 @@ import StudentRouter from "./Router/Student.js";
 import cors from "cors";
 import path from "path";
 dotenv.config({ path: "./config.env" });
+dotenv.config();
 const __dirname = path.resolve();
 const app = Express();
 const PORT = process.env.PORT || 8080;
