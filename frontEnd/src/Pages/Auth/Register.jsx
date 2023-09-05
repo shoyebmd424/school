@@ -3,6 +3,7 @@ import Layout from "../../conponents/Layout";
 import Axios from "../../conponents/Axios";
 import { toast } from "react-toastify";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { useAuth } from "../../context/AuthContext";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ const Register = () => {
   const [cnfPass, setCnfpass] = useState("");
   const [isTeacher, setIsteacher] = useState(false);
   const [isPass, setPass] = useState(false);
+  const [auth] = useAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -48,6 +50,7 @@ const Register = () => {
           <form action="" className="p-3" onSubmit={handleSubmit}>
             <div className="mb-3">
               <input
+                required
                 className="form-control"
                 type="text"
                 placeholder="Enter Name"
@@ -56,6 +59,7 @@ const Register = () => {
             </div>
             <div className="mb-3">
               <input
+                required
                 className="form-control"
                 type="email"
                 placeholder="Enter Email"
@@ -64,6 +68,7 @@ const Register = () => {
             </div>
             <div className="mb-3">
               <input
+                required
                 className="form-control"
                 type="text"
                 placeholder="Enter mobile Number"
@@ -73,6 +78,7 @@ const Register = () => {
             <div className="mb-3">
               <span className="d-flex border rounded pe-2">
                 <input
+                  required
                   className="form-control border-0"
                   type={isPass ? "text" : "password"}
                   placeholder="Enter password"
@@ -93,6 +99,7 @@ const Register = () => {
             </div>
             <div className="mb-3">
               <input
+                required
                 className="form-control"
                 type="password"
                 placeholder="Enter Confirm password"
@@ -100,18 +107,20 @@ const Register = () => {
               />
             </div>
             <div className="mb-3 d-flex justify-content-between mx-3">
-              <div>
-                <input
-                  className="form-controll check p-2"
-                  type="checkbox"
-                  onChange={(e) => {
-                    if (e.target.value) setIsteacher(true);
-                  }}
-                />
-                <label htmlFor="checkbox" className="ms-2">
-                  Teacher
-                </label>
-              </div>
+              {auth?.user?.isAdmin === 1 && (
+                <div>
+                  <input
+                    className="form-controll check p-2"
+                    type="checkbox"
+                    onChange={(e) => {
+                      if (e.target.value) setIsteacher(true);
+                    }}
+                  />
+                  <label htmlFor="checkbox" className="ms-2">
+                    Teacher
+                  </label>
+                </div>
+              )}
               <div>
                 <input
                   className="form-controll check"
@@ -127,7 +136,7 @@ const Register = () => {
             </div>
             <div className="mb-3 text-center">
               <button type="submit" className="btn btn-primary">
-                <b>Login</b>
+                <b>Register</b>
               </button>
             </div>
           </form>

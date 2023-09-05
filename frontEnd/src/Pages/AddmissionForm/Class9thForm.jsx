@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../conponents/Layout";
 import Path from "../../conponents/Path";
+import { toast } from "react-toastify";
+import Axios from "../../conponents/Axios";
 
 const Class9thForm = () => {
+  const [data, setData] = useState(undefined);
+  const hanldeChange = (e) => {
+    setData((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
+  };
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await Axios.post("/class9th", data);
+      if (res.data && res.data.success) {
+        toast.success(res.data.message);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      toast.error("something went wrong....");
+    }
+  };
   return (
     <Layout>
       <Path path={[{ path: "/", name: "Home" }]} page="Addmission" />
@@ -14,23 +33,37 @@ const Class9thForm = () => {
           <h2 className="text-center my-5">
             <b> Registration for Class 9th Addmission form</b>
           </h2>
-          <form action="">
+          <form action="" onSubmit={handlesubmit}>
             <div className="row row-cols-md-2 my-3 text-capitalize">
               <div className="mb-3">
                 <label htmlFor="">Name of Student</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="name"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Student Aadhaar Number</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="aadhaar"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3 d-flex gap-3">
                 <label htmlFor="">Gender</label>
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="gender"
                     value="male"
                   />
                   <label className="form-check-label" for="exampleRadios2">
@@ -40,8 +73,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="gender"
                     id="female"
                     value="female"
                   />
@@ -52,8 +87,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="gender"
                     id="tans"
                     value="trans"
                   />
@@ -64,53 +101,129 @@ const Class9thForm = () => {
               </div>
               <div className="mb-3">
                 <label htmlFor="">Father's name </label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="father"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
-                <label htmlFor="">Mother's name</label>
-                <input type="text" className="form-control" />
+                <label htmlFor="" name="mother">
+                  Mother's name
+                </label>
+                <input
+                  name="mother"
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
-                <label htmlFor="">Gaurdian's name &Relation</label>
-                <input type="text" className="form-control" />
+                <label htmlFor="" name="guardian">
+                  Gaurdian's name &Relation
+                </label>
+                <input
+                  name="guardian"
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Permanent address</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="permanentAddress"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Present Address</label>
-                <input type="text" className="form-control" />
+                <input
+                  name="presentAddress"
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Phone No.</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="phone"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Whatsapp No.</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="whatsAppNo"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Religion and caste</label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="religion"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">DOB of Student</label>
-                <input type="date" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="date"
+                  name="DOB"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Last Qualification </label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="lastQualification"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">Last Institute </label>
-                <input type="text" className="form-control" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  name="lastinstitute"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="">
                   Do you need school conveyance if so bus stop address
                 </label>
-                <input type="text" className="form-control" />
+                <input
+                  name="busAddress"
+                  onChange={hanldeChange}
+                  required
+                  type="text"
+                  className="form-control"
+                />
               </div>
               <div className="mb-3 d-flex gap-3">
                 <label htmlFor="">
@@ -119,9 +232,11 @@ const Class9thForm = () => {
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    value="male"
+                    name="typeStudent1"
+                    value="regular"
                   />
                   <label className="form-check-label" for="exampleRadios2">
                     Regular
@@ -130,12 +245,14 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    id="female"
-                    value="female"
+                    name="typeStudent1"
+                    id="reAdmission"
+                    value="reAdmission"
                   />
-                  <label className="form-check-label" for="female">
+                  <label className="form-check-label" for="reAdmission">
                     Re-addmission in class 9th
                   </label>
                 </div>
@@ -147,8 +264,10 @@ const Class9thForm = () => {
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="typeStudent2"
                     value="General"
                   />
                   <label className="form-check-label" for="exampleRadios2">
@@ -158,8 +277,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="typeStudent2"
                     id="singht"
                     value="singht"
                   />
@@ -170,8 +291,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="typeStudent2"
                     id="mute"
                     value="mute"
                   />
@@ -182,8 +305,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="typeStudent2"
                     id="mute"
                     value="mute"
                   />
@@ -200,19 +325,23 @@ const Class9thForm = () => {
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="caste"
                     value="sc"
                   />
-                  <label className="form-check-label" for="exampleRadios2">
+                  <label className="form-check-label" for="">
                     SC
                   </label>
                 </div>
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="caste"
                     id="st"
                     value="st"
                   />
@@ -223,8 +352,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="caste"
                     id="obc"
                     value="obc"
                   />
@@ -235,8 +366,10 @@ const Class9thForm = () => {
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
+                    name="caste"
                     id="others"
                     value="others"
                   />
@@ -253,11 +386,25 @@ const Class9thForm = () => {
               </label>
               <div>
                 <label htmlFor="">Hindi</label>
-                <input type="checkbox" className="check" />
+                <input
+                  name="hindi"
+                  onChange={hanldeChange}
+                  required
+                  type="checkbox"
+                  value="Hindi"
+                  className="check"
+                />
               </div>
               <div>
                 <label htmlFor="">English</label>
-                <input type="checkbox" className="check" />
+                <input
+                  onChange={hanldeChange}
+                  required
+                  type="checkbox"
+                  value="english"
+                  className="check"
+                  name="english"
+                />
               </div>
 
               <div className="mb-3 ">
@@ -267,23 +414,27 @@ const Class9thForm = () => {
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    value="sc"
+                    name="chois1"
+                    value="math"
                   />
-                  <label className="form-check-label" for="exampleRadios2">
+                  <label className="form-check-label" for="math">
                     Mathemetics
                   </label>
                 </div>
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    id="st"
-                    value="st"
+                    name="choise1"
+                    id="homescience"
+                    value="homescience"
                   />
-                  <label className="form-check-label" for="st">
+                  <label className="form-check-label" for="homescience">
                     Home Science (only for girl)
                   </label>
                 </div>
@@ -291,11 +442,25 @@ const Class9thForm = () => {
 
               <div>
                 <label htmlFor="">Science</label>
-                <input type="checkbox" className="check" />
+                <input
+                  name="science"
+                  value="science"
+                  onChange={hanldeChange}
+                  required
+                  type="checkbox"
+                  className="check"
+                />
               </div>
               <div>
                 <label htmlFor="">Social science</label>
-                <input type="checkbox" className="check" />
+                <input
+                  name="sscience"
+                  value="social science"
+                  onChange={hanldeChange}
+                  required
+                  type="checkbox"
+                  className="check"
+                />
               </div>
 
               <div className="mb-3 ">
@@ -305,35 +470,41 @@ const Class9thForm = () => {
                 <div class="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    value="sc"
+                    name="chois1"
+                    value="commerce"
                   />
-                  <label className="form-check-label" for="exampleRadios2">
+                  <label className="form-check-label" for="cho">
                     Commerce
                   </label>
                 </div>
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    id="st"
-                    value="st"
+                    name="choise2"
+                    id="drawing"
+                    value="drawing"
                   />
-                  <label className="form-check-label" for="st">
+                  <label className="form-check-label" for="drawing">
                     Drawing
                   </label>
                 </div>
                 <div className="form-check">
                   <input
                     className="form-check-input"
+                    onChange={hanldeChange}
+                    required
                     type="radio"
-                    name="exampleRadios"
-                    id="st"
-                    value="st"
+                    name="choise2"
+                    id="computer"
+                    value="computer"
                   />
-                  <label className="form-check-label" for="st">
+                  <label className="form-check-label" for="computer">
                     Computer
                   </label>
                 </div>

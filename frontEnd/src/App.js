@@ -41,6 +41,12 @@ import Upto8thForm from "./Pages/AddmissionForm/Upto8thForm";
 import Class9thForm from "./Pages/AddmissionForm/Class9thForm";
 import StudentView from "./Pages/Teacher/StudentView";
 import ForgetPass from "./Pages/Auth/ForgetPass";
+import AllEnquery from "./Pages/Teacher/Enquery/AllEnquery";
+import Class8thRegistration from "./Pages/Teacher/Registration/8thClassRegisteration";
+import Class8thRegistrationView from "./Pages/Teacher/Registration/Class8thRegistrationView";
+import Class9thRegistration from "./Pages/Teacher/Registration/Class9thDash";
+import Class9thRegistrationView from "./Pages/Teacher/Registration/Class9thView";
+import AllContact from "./Pages/Teacher/AllContacts";
 
 function App() {
   return (
@@ -48,7 +54,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
         <Route exact path="/forget" element={<ForgetPass />} />
         <Route exact path="/contact" element={<ContactUs />} />
         <Route exact path="/fee-structure" element={<FeeStructure />} />
@@ -96,13 +101,26 @@ function App() {
           <Route path="" element={<StudenyDashBoard />} />
         </Route>
         <Route exact path="/teacher" element={<TeacherProtect />}>
+          <Route exact path="register" element={<Register />} />
           <Route path="" element={<Teacher />} />
           <Route path=":id" element={<StudentView />} />
+          <Route path="enquery" element={<AllEnquery />} />
+          <Route path="contact" element={<AllContact />} />
+          <Route path="class-8th" element={<Class8thRegistration />} />
+          <Route path="class-9th" element={<Class9thRegistration />} />
+          <Route path="class-8th/:id" element={<Class8thRegistrationView />} />
+          <Route path="class-9th/:id" element={<Class9thRegistrationView />} />
         </Route>
         <Route exact path="/admin" element={<AdminProtect />}>
+          <Route exact path="register" element={<Register />} />
           <Route path="" element={<Admin />} />
           <Route path="student" element={<StudenyDashBoard />} />
           <Route path="teacher" element={<Teacher />} />
+          <Route path="enquery" element={<AllEnquery />} />
+          <Route path="class-8th" element={<Class8thRegistration />} />
+          <Route path="class-9th" element={<Class9thRegistration />} />
+          <Route path="class-8th/:id" element={<Class8thRegistrationView />} />
+          <Route path="class-9th/:id" element={<Class9thRegistrationView />} />
         </Route>
         <Route exact path="*" element={<Error />} />
       </Routes>

@@ -23,18 +23,22 @@ const Navbar = () => {
             {" "}
             <b> Student</b>
           </NavLink>
+          <NavLink className="text-decoration-none" to="/admin/register">
+            Register
+          </NavLink>
         </>
       );
     } else if (auth?.user?.isTeacher === 1) {
       return (
         <>
           <NavLink className="text-decoration-none" to="/teacher">
-            {" "}
             Teacher
           </NavLink>
           <NavLink className="text-decoration-none" to="/student">
-            {" "}
             Student
+          </NavLink>
+          <NavLink className="text-decoration-none" to="/teacher/register">
+            Register
           </NavLink>
         </>
       );

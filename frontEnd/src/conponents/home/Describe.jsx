@@ -24,49 +24,49 @@ const Describe = () => {
                   <ul className="mx-0 px-0">
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Monday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Tuesday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color"></i>
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Wednesday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Thursday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Friday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Saturday</div> <div> 08:00 - 02:00</div>
                       </div>
                     </li>
                     <hr className="no-padding no-margin bg-light" />
                     <li className="d-flex">
                       <i className="fa  fa-hand-o-right fa-color" />
-                      <div className="ml-3 d-flex justify-content-between">
+                      <div className="ml-3 d-flex col-12 justify-content-between">
                         <div> Sunday</div> <div> Closed</div>
                       </div>
                     </li>

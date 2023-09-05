@@ -87,9 +87,20 @@ const Login = () => {
               <Link to="/forget" className="text-decoration-none">
                 forget password
               </Link>
-              <Link to="/register" className="text-decoration-none">
-                Register
-              </Link>
+              {(auth?.user?.isAdmin === 1 || auth?.user?.isTeacher === 1) && (
+                <Link
+                  to={
+                    auth?.user?.isAdmin === 1
+                      ? "/admin/register"
+                      : auth?.user?.isTeacher === 1
+                      ? "/teacher/register"
+                      : "/"
+                  }
+                  className="text-decoration-none"
+                >
+                  Register
+                </Link>
+              )}
             </div>
             <div className="mb-3 text-center">
               <button type="submit" className="btn btn-primary">

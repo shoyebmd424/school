@@ -31,8 +31,11 @@ const StudenyDashBoard = () => {
         </h3>
       ) : (
         <div style={{ overflow: "hidden" }}>
-          <h1 className=" text-center my-3">
-            <b> Student Details</b>
+          <h1 className=" text-center my-3 text-capitalize">
+            <b>
+              {" "}
+              Hi<span className="text-primary">, {list.name}</span>
+            </b>
           </h1>
           {loading ? (
             loading & toast.loading("Lodaing", { toastId: CustomId })

@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Layout from "../conponents/Layout";
 import Path from "../conponents/Path";
+import { toast } from "react-toastify";
+import Axios from "../conponents/Axios";
 
 const ContactUs = () => {
+  const [data, setData] = useState(undefined);
+  const HanldeChange = (e) => {
+    setData((pre) => ({ ...pre, [e.target.name]: [e.target.value] }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await Axios.post("/contact", data);
+      if (res.data && res.data.success) {
+        toast.success(res.data.message);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      toast.error("something went wrong...");
+    }
+  };
+
   return (
     <Layout>
       <Path path={[{ name: "Home", path: "/" }]} page="Contact us" />
@@ -42,7 +62,7 @@ const ContactUs = () => {
             </Col>
 
             <Col lg="7" className="d-flex align-items-center">
-              <form className="contact__form w-100 ">
+              <form className="contact__form w-100 " onSubmit={handleSubmit}>
                 <Row>
                   <Col lg="6" className="form-group py-3">
                     <input
@@ -52,6 +72,7 @@ const ContactUs = () => {
                       placeholder="Name"
                       type="text"
                       required
+                      onChange={HanldeChange}
                     />
                   </Col>
                   <Col lg="6" className="form-group py-3">
@@ -62,6 +83,7 @@ const ContactUs = () => {
                       placeholder="Email"
                       type="email"
                       required
+                      onChange={HanldeChange}
                     />
                   </Col>
                 </Row>
@@ -72,6 +94,7 @@ const ContactUs = () => {
                   placeholder="Message"
                   rows="5"
                   required
+                  onChange={HanldeChange}
                 ></textarea>
                 <br />
                 <Row>

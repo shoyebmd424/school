@@ -6,6 +6,7 @@ import Axios from "../../conponents/Axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import EditStudent from "./EditStudent";
+import { useAuth } from "../../context/AuthContext";
 
 const Teacher = () => {
   const { data, loading } = useFetch("/student");
@@ -14,6 +15,7 @@ const Teacher = () => {
   const [editLoading, seteditLoading] = useState(false);
   const [alldata, setAlldata] = useState([]);
   const [student, setStudent] = useState({});
+  const [auth] = useAuth();
   const addRef = useRef();
   const CustomId = "toastId";
 
@@ -66,10 +68,24 @@ const Teacher = () => {
   }, [data]);
   return (
     <Layout>
-      {/* <h1>Teacher Dashboard</h1> */}
+      <h1 className="text-center my-3 text-capitalize">
+        hello <span className="text-primary">,{auth?.user?.name}</span>
+      </h1>
       <button onClick={() => setIsAdd(!isAdd)} className="btn btn-primary m-3">
         <b>Add Student</b>{" "}
       </button>
+      <Link to="/teacher/enquery" className="btn mx-2 btn-primary">
+        <b> Enquery</b>
+      </Link>
+      <Link to="/teacher/class-8th" className="btn mx-2 my-2 btn-primary">
+        <b> Class 8th Registrations</b>
+      </Link>
+      <Link to="/teacher/class-9th" className="btn m-2 btn-primary">
+        <b> Class 9th Registrations</b>
+      </Link>
+      <Link to="/teacher/contact" className="btn m-2 btn-primary">
+        <b>All Contact Messages</b>
+      </Link>
       <div ref={addRef} className={isAdd ? "" : "d-none"}>
         <AddStudent update={isAdd} setupdate={(e) => setIsAdd(e)} />
       </div>
