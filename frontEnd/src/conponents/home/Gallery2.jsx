@@ -34,7 +34,7 @@ const Gallery2 = () => {
                       {" "}
                       <div className="gallery-inner-main ">
                         <Link
-                          to="/gallary"
+                          to="/gallery"
                           className="img-fluid"
                           href="/images/home/h1.jpg"
                           alt="gallery"
